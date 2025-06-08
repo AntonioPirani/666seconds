@@ -61,8 +61,7 @@ func start_movement_sequence() -> void:
 	await move_in_direction(Vector2.UP, 2)
 	# make the player move to new section here
 	can_move = true
-	await TransitionScreen.on_transition_finished
-	
+	await TransitionScreen.on_transition_finisheds
 	can_move = true
 
 func move_in_direction(direction: Vector2, steps: int) -> void:
