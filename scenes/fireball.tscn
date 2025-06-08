@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbvt1vv4q6ar0"]
+
+[ext_resource type="Script" path="res://scripts/fireball.gd" id="1_3uv0g"]
+[ext_resource type="Texture2D" uid="uid://det48xj05tf5g" path="res://assets/sprites/fireball/fireball.png" id="1_w6skh"]
+[ext_resource type="Texture2D" uid="uid://bh6tufbt3su1t" path="res://assets/sprites/fireball/electricball.png" id="3_fknjq"]
+[ext_resource type="Texture2D" uid="uid://qft1vgiv2xi3" path="res://assets/sprites/fireball/waterball.png" id="4_78n0r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8nev6"]
+radius = 68.1542
+
+[node name="fireball" type="Area2D"]
+script = ExtResource("1_3uv0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8nev6")
+
+[node name="FireBall" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_w6skh")
+
+[node name="ElectricBall" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_fknjq")
+
+[node name="WaterBall" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("4_78n0r")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,324 @@
+[gd_scene load_steps=25 format=3 uid="uid://5asq5j35jtul"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_k0mp0"]
+[ext_resource type="PackedScene" uid="uid://bc7yw3u4m6uue" path="res://scenes/player.tscn" id="1_p2ntj"]
+[ext_resource type="PackedScene" uid="uid://b3st3cl85yb0t" path="res://scenes/hud.tscn" id="1_w5jnp"]
+[ext_resource type="AudioStream" uid="uid://dj7yleuq4ap1e" path="res://assets/sounds/musics/bg_music.mp3" id="2_3l87y"]
+[ext_resource type="PackedScene" uid="uid://df8f5xj7y66my" path="res://scenes/ghost.tscn" id="3_2pqcv"]
+[ext_resource type="Script" path="res://scripts/music.gd" id="3_fu6tu"]
+[ext_resource type="PackedScene" uid="uid://2t2j13qwgc5x" path="res://scenes/room.tscn" id="4_d58gt"]
+[ext_resource type="Script" path="res://scripts/doors/right_door_main.gd" id="5_ktw3f"]
+[ext_resource type="FontFile" uid="uid://db1afvq6nh352" path="res://assets/fonts/DoubleHomicide.ttf" id="6_o6sar"]
+[ext_resource type="AudioStream" uid="uid://dadrjqpx1tmjn" path="res://assets/sounds/effects/door_sound.mp3" id="7_q8u0s"]
+[ext_resource type="Script" path="res://scripts/doors/right_door_small.gd" id="7_rdp1c"]
+[ext_resource type="Script" path="res://scripts/doors/door_center_main.gd" id="8_vrcr2"]
+[ext_resource type="Script" path="res://scripts/doors/door_center_small.gd" id="9_g47dk"]
+[ext_resource type="Script" path="res://scripts/doors/door_left_main.gd" id="10_wxvhm"]
+[ext_resource type="Script" path="res://scripts/doors/door_left_small.gd" id="11_e360y"]
+[ext_resource type="Script" path="res://scripts/doors/stairs_down.gd" id="12_222ky"]
+[ext_resource type="Script" path="res://scripts/doors/stairs_up.gd" id="13_kbdpb"]
+[ext_resource type="Script" path="res://scripts/doors/exit_door.gd" id="14_ws3n3"]
+[ext_resource type="PackedScene" uid="uid://bq25owup2md48" path="res://scenes/textbox.tscn" id="19_t6sd6"]
+[ext_resource type="Script" path="res://scripts/textbox.gd" id="20_eqpts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_504d0"]
+size = Vector2(17, 19)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r5qqx"]
+font = ExtResource("6_o6sar")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljb38"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2sofg"]
+font = ExtResource("6_o6sar")
+
+[node name="Main" type="Node"]
+script = ExtResource("1_k0mp0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3l87y")
+volume_db = -10.0
+script = ExtResource("3_fu6tu")
+
+[node name="Layout" parent="." instance=ExtResource("4_d58gt")]
+position = Vector2(3, 131)
+
+[node name="RoomRight" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomRight"]
+position = Vector2(794, 314)
+stream = ExtResource("7_q8u0s")
+
+[node name="RoomRight" type="Node" parent="RoomRight"]
+
+[node name="DoorMain" type="Area2D" parent="RoomRight/RoomRight"]
+position = Vector2(662, 386)
+script = ExtResource("5_ktw3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomRight/RoomRight/DoorMain"]
+position = Vector2(2, 5)
+shape = SubResource("RectangleShape2D_504d0")
+
+[node name="Label" type="Label" parent="RoomRight/RoomRight/DoorMain"]
+texture_filter = 1
+offset_left = -30.0
+offset_top = -33.0
+offset_right = 41.0
+offset_bottom = -10.0
+text = "Press Enter"
+label_settings = SubResource("LabelSettings_r5qqx")
+
+[node name="Position1" type="Marker2D" parent="RoomRight/RoomRight"]
+position = Vector2(663, 410)
+
+[node name="RoomRight2" type="Node" parent="RoomRight"]
+
+[node name="DoorSmall" type="Area2D" parent="RoomRight/RoomRight2"]
+position = Vector2(679, 258)
+script = ExtResource("7_rdp1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomRight/RoomRight2/DoorSmall"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_504d0")
+
+[node name="Label" type="Label" parent="RoomRight/RoomRight2/DoorSmall"]
+texture_filter = 1
+offset_left = -33.0
+offset_top = 15.0
+offset_right = 38.0
+offset_bottom = 38.0
+text = "Press Enter"
+label_settings = SubResource("LabelSettings_r5qqx")
+
+[node name="Position2" type="Marker2D" parent="RoomRight/RoomRight2"]
+position = Vector2(680, 240)
+
+[node name="RoomCenter" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomCenter"]
+position = Vector2(794, 314)
+stream = ExtResource("7_q8u0s")
+
+[node name="RoomCenter" type="Node" parent="RoomCenter"]
+
+[node name="DoorCenter" type="Area2D" parent="RoomCenter/RoomCenter"]
+position = Vector2(728, 388)
+script = ExtResource("8_vrcr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomCenter/RoomCenter/DoorCenter"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_504d0")
+
+[node name="Label" type="Label" parent="RoomCenter/RoomCenter/DoorCenter"]
+texture_filter = 1
+offset_left = -30.0
+offset_top = -33.0
+offset_right = 41.0
+offset_bottom = -10.0
+text = "Press Enter"
+label_settings = SubResource("LabelSettings_r5qqx")
+
+[node name="Position1" type="Marker2D" parent="RoomCenter/RoomCenter"]
+position = Vector2(727, 408)
+
+[node name="RoomCenterSmall" type="Node" parent="RoomCenter"]
+
+[node name="DoorCenterSmall" type="Area2D" parent="RoomCenter/RoomCenterSmall"]
+position = Vector2(1031, 464)
+script = ExtResource("9_g47dk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomCenter/RoomCenterSmall/DoorCenterSmall"]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_504d0")
+
+[node name="Label" type="Label" parent="RoomCenter/RoomCenterSmall/DoorCenterSmall"]
+texture_filter = 1
+offset_left = -33.0
+offset_top = 15.0
+offset_right = 38.0
+offset_bottom = 38.0
+text = "Press Enter"
+label_settings = SubResource("LabelSettings_r5qqx")
+
+[node name="Position2" type="Marker2D" parent="RoomCenter/RoomCenterSmall"]
+position = Vector2(1031, 445)
+
+[node name="RoomLeft" type="Node2D" parent="."]
+position = Vector2(797, 415)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomLeft"]
+position = Vector2(794, 314)
+stream = ExtResource("7_q8u0s")
+
+[node name="RoomLeft" type="Node" parent="RoomLeft"]
+
+[node name="DoorLeft" type="Area2D" parent="RoomLeft/RoomLeft"]
+position = Vector2(792, 388)
+script = ExtResource("10_wxvhm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomLeft/RoomLeft/DoorLeft"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_504d0")
+
+[node name="Label" type="Label" parent="RoomLeft/RoomLeft/DoorLeft"]
+texture_filter = 1
+offset_left = -30.0
+offset_top = -33.0
+offset_right = 41.0
+offset_bottom = -10.0
+text = "Press Enter"
+label_settings = SubResource("LabelSettings_r5qqx")
+
+[node name="Position1" type="Marker2D" parent="RoomLeft/RoomLeft"]
+position = Vector2(791, 406)
+
+[node name="RoomLeftSmall" type="Node" parent="RoomLeft"]
+
+[node name="DoorLeftSmall" type="Area2D" parent="RoomLeft/RoomLeftSmall"]
+position = Vector2(1031, 259)
+script = ExtResource("11_e360y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomLeft/RoomLeftSmall/DoorLeftSmall"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_504d0")
+
+[node name="Label" type="Label" parent="RoomLeft/RoomLeftSmall/DoorLeftSmall"]
+texture_filter = 1
+offset_left = -33.0
+offset_top = 15.0
+offset_right = 38.0
+offset_bottom = 38.0
+text = "Press Enter"
+label_settings = SubResource("LabelSettings_r5qqx")
+
+[node name="Position2" type="Marker2D" parent="RoomLeft/RoomLeftSmall"]
+position = Vector2(1032, 235)
+
+[node name="RoomUpstair" type="Node2D" parent="."]
+position = Vector2(797, 415)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomUpstair"]
+position = Vector2(794, 314)
+stream = ExtResource("7_q8u0s")
+
+[node name="RoomDown" type="Node" parent="RoomUpstair"]
+
+[node name="StairsDown" type="Area2D" parent="RoomUpstair/RoomDown"]
+position = Vector2(825, 417)
+script = ExtResource("12_222ky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomUpstair/RoomDown/StairsDown"]
+position = Vector2(4.5, 0.5)
+shape = SubResource("RectangleShape2D_504d0")
+
+[node name="Label" type="Label" parent="RoomUpstair/RoomDown/StairsDown"]
+texture_filter = 1
+offset_left = 31.0
+offset_top = -9.0
+offset_right = 97.0
+offset_bottom = 8.0
+text = "Go upstairs"
+label_settings = SubResource("LabelSettings_r5qqx")
+
+[node name="Position1" type="Marker2D" parent="RoomUpstair/RoomDown"]
+position = Vector2(804, 419)
+
+[node name="RoomUp" type="Node" parent="RoomUpstair"]
+
+[node name="StairsUp" type="Area2D" parent="RoomUpstair/RoomUp"]
+position = Vector2(1138, 682)
+script = ExtResource("13_kbdpb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomUpstair/RoomUp/StairsUp"]
+position = Vector2(-2, -6)
+shape = SubResource("RectangleShape2D_504d0")
+
+[node name="Label" type="Label" parent="RoomUpstair/RoomUp/StairsUp"]
+texture_filter = 1
+offset_left = 22.0
+offset_top = -16.0
+offset_right = 103.0
+offset_bottom = 1.0
+text = "Go downstairs
+"
+label_settings = SubResource("LabelSettings_r5qqx")
+
+[node name="Position2" type="Marker2D" parent="RoomUpstair/RoomUp"]
+position = Vector2(1110, 677)
+
+[node name="Player" parent="." instance=ExtResource("1_p2ntj")]
+z_index = 1
+position = Vector2(736, 428)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4.15, 4.15)
+
+[node name="HUD" parent="Player/Camera2D" instance=ExtResource("1_w5jnp")]
+z_index = 4
+offset_left = -144.0
+offset_top = -81.0
+offset_right = -144.0
+offset_bottom = -81.0
+scale = Vector2(0.250066, 0.250066)
+
+[node name="ColorRect" type="ColorRect" parent="Player/Camera2D"]
+z_index = -2
+offset_left = -182.0
+offset_top = -108.0
+offset_right = -142.0
+offset_bottom = -68.0
+scale = Vector2(9.60829, 5.23308)
+color = Color(0, 0, 0, 1)
+
+[node name="ghost" parent="." instance=ExtResource("3_2pqcv")]
+z_index = 1
+position = Vector2(939, 681)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(3, 131)
+
+[node name="Exit" type="Node" parent="."]
+
+[node name="ExitDoor" type="Area2D" parent="Exit"]
+position = Vector2(-3, -7)
+script = ExtResource("14_ws3n3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/ExitDoor"]
+position = Vector2(731, 459)
+shape = SubResource("RectangleShape2D_ljb38")
+
+[node name="Label" type="Label" parent="Exit/ExitDoor"]
+texture_filter = 1
+offset_left = 669.0
+offset_top = 471.0
+offset_right = 799.0
+offset_bottom = 494.0
+text = "You cannot leave yet...
+"
+label_settings = SubResource("LabelSettings_2sofg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Exit"]
+position = Vector2(794, 314)
+stream = ExtResource("7_q8u0s")
+
+[node name="SceneSettingText" parent="." instance=ExtResource("19_t6sd6")]
+script = ExtResource("20_eqpts")
+
+[connection signal="body_entered" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_entered"]
+[connection signal="body_exited" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_exited"]
+[connection signal="body_entered" from="RoomRight/RoomRight2/DoorSmall" to="RoomRight/RoomRight2/DoorSmall" method="_on_body_entered"]
+[connection signal="body_exited" from="RoomRight/RoomRight2/DoorSmall" to="RoomRight/RoomRight2/DoorSmall" method="_on_body_exited"]
+[connection signal="body_entered" from="RoomCenter/RoomCenter/DoorCenter" to="RoomCenter/RoomCenter/DoorCenter" method="_on_body_entered"]
+[connection signal="body_exited" from="RoomCenter/RoomCenter/DoorCenter" to="RoomCenter/RoomCenter/DoorCenter" method="_on_body_exited"]
+[connection signal="body_entered" from="RoomCenter/RoomCenterSmall/DoorCenterSmall" to="RoomCenter/RoomCenterSmall/DoorCenterSmall" method="_on_body_entered"]
+[connection signal="body_exited" from="RoomCenter/RoomCenterSmall/DoorCenterSmall" to="RoomCenter/RoomCenterSmall/DoorCenterSmall" method="_on_body_exited"]
+[connection signal="body_entered" from="RoomLeft/RoomLeft/DoorLeft" to="RoomLeft/RoomLeft/DoorLeft" method="_on_body_entered"]
+[connection signal="body_exited" from="RoomLeft/RoomLeft/DoorLeft" to="RoomLeft/RoomLeft/DoorLeft" method="_on_body_exited"]
+[connection signal="body_entered" from="RoomLeft/RoomLeftSmall/DoorLeftSmall" to="RoomLeft/RoomLeftSmall/DoorLeftSmall" method="_on_body_entered"]
+[connection signal="body_exited" from="RoomLeft/RoomLeftSmall/DoorLeftSmall" to="RoomLeft/RoomLeftSmall/DoorLeftSmall" method="_on_body_exited"]
+[connection signal="body_entered" from="RoomUpstair/RoomDown/StairsDown" to="RoomUpstair/RoomDown/StairsDown" method="_on_body_entered"]
+[connection signal="body_exited" from="RoomUpstair/RoomDown/StairsDown" to="RoomUpstair/RoomDown/StairsDown" method="_on_body_exited"]
+[connection signal="body_entered" from="RoomUpstair/RoomUp/StairsUp" to="RoomUpstair/RoomUp/StairsUp" method="_on_body_entered"]
+[connection signal="body_exited" from="RoomUpstair/RoomUp/StairsUp" to="RoomUpstair/RoomUp/StairsUp" method="_on_body_exited"]
+[connection signal="body_entered" from="Exit/ExitDoor" to="Exit/ExitDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="Exit/ExitDoor" to="Exit/ExitDoor" method="_on_body_exited"]

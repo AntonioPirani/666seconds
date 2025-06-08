@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://mqs1ftik5gu"]
+
+[ext_resource type="Texture2D" uid="uid://bd25ivx2pufya" path="res://assets/sprites/UI/control_page.png" id="1_0eueb"]
+[ext_resource type="Script" path="res://scripts/controls.gd" id="1_6isnw"]
+
+[node name="Controls" type="Node2D"]
+script = ExtResource("1_6isnw")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ControlPage" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(3.16484, 3.16097)
+texture = ExtResource("1_0eueb")

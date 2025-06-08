@@ -1,0 +1,111 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3st3cl85yb0t"]
+
+[ext_resource type="Shader" path="res://shaders/main.gdshader" id="1_4k30a"]
+[ext_resource type="Script" path="res://scripts/time_left.gd" id="1_mr26o"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_y1jeg"]
+[ext_resource type="Texture2D" uid="uid://ba0rrls2nf35b" path="res://assets/sprites/UI/items/lightning.png" id="3_dnwip"]
+[ext_resource type="FontFile" uid="uid://db1afvq6nh352" path="res://assets/fonts/DoubleHomicide.ttf" id="3_rlt6p"]
+[ext_resource type="Texture2D" uid="uid://33bcmyy51spn" path="res://assets/sprites/UI/items/candle.png" id="4_r7fkp"]
+[ext_resource type="Texture2D" uid="uid://83k5aaiyi8ci" path="res://assets/sprites/UI/items/cross_candle.png" id="5_pebrj"]
+[ext_resource type="Texture2D" uid="uid://doyp7cvpder0e" path="res://assets/sprites/UI/items/water_bottle.png" id="5_qtuq5"]
+[ext_resource type="Texture2D" uid="uid://bh8kaw3bj6u4a" path="res://assets/sprites/UI/items/tick_candle.png" id="6_jcuxg"]
+[ext_resource type="Texture2D" uid="uid://bjottkpp7lly0" path="res://assets/sprites/ghost/hearts.png" id="10_gqpsj"]
+[ext_resource type="Script" path="res://scripts/health.gd" id="11_y64j5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ob3dd"]
+shader = ExtResource("1_4k30a")
+shader_parameter/outerRadius = 1.0
+shader_parameter/MainAlpha = 1.0
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y1jeg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ob3dd")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TimeLeft" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 57.0
+offset_top = 32.0
+offset_right = 143.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("3_rlt6p")
+theme_override_font_sizes/font_size = 75
+text = "666"
+script = ExtResource("1_mr26o")
+
+[node name="Lightning" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(157, 571)
+texture = ExtResource("3_dnwip")
+
+[node name="ElectricTick" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(108, 604)
+texture = ExtResource("6_jcuxg")
+
+[node name="ElectricCross" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(108, 604)
+texture = ExtResource("5_pebrj")
+
+[node name="Candle" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(233, 570)
+texture = ExtResource("4_r7fkp")
+
+[node name="CandleTick" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(187, 604)
+texture = ExtResource("6_jcuxg")
+
+[node name="CandleCross" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(189, 603)
+texture = ExtResource("5_pebrj")
+
+[node name="WaterBottle" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(87, 572)
+texture = ExtResource("5_qtuq5")
+
+[node name="WaterTick" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(43, 604)
+texture = ExtResource("6_jcuxg")
+
+[node name="WaterCross" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(42, 604)
+texture = ExtResource("5_pebrj")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(500, 0)
+scale = Vector2(0.645, 0.645)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Node2D"]
+texture_filter = 1
+offset_left = -1.55037
+offset_top = 65.1163
+offset_right = 248.45
+offset_bottom = 145.116
+max_value = 3.0
+value = 3.0
+texture_progress = ExtResource("10_gqpsj")
+script = ExtResource("11_y64j5")

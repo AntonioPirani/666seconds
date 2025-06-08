@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://t41ehcdpq7f5"]
+
+[ext_resource type="Script" path="res://scripts/choices_node.gd" id="1_ds38t"]
+[ext_resource type="FontFile" uid="uid://db1afvq6nh352" path="res://assets/fonts/DoubleHomicide.ttf" id="2_k41ki"]
+[ext_resource type="Script" path="res://scripts/choices_dialog.gd" id="3_oxx0h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n1dke"]
+font = ExtResource("2_k41ki")
+font_size = 200
+shadow_size = 0
+
+[node name="CanvasLayer" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_ds38t")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 501.0
+offset_top = 263.0
+offset_right = 3301.0
+offset_bottom = 403.0
+scale = Vector2(0.05, 0.05)
+text = "You are about to enter the living room, are you sure?
+"
+label_settings = SubResource("LabelSettings_n1dke")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Choices Dialog" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -49.0
+offset_right = 2188.0
+offset_bottom = 351.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+script = ExtResource("3_oxx0h")
+
+[node name="MarginContainer" type="MarginContainer" parent="Choices Dialog"]
+layout_mode = 2
+
+[node name="Choices" type="VBoxContainer" parent="Choices Dialog/MarginContainer"]
+layout_mode = 2
+
+[node name="Choice Button" type="Button" parent="Choices Dialog/MarginContainer/Choices"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_k41ki")
+theme_override_font_sizes/font_size = 200

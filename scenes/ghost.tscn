@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://df8f5xj7y66my"]
+
+[ext_resource type="Script" path="res://scripts/ghost.gd" id="1_vtgse"]
+[ext_resource type="Texture2D" uid="uid://cl1gw4k8druaj" path="res://assets/sprites/ghost/electric/electric_ghost.png" id="2_xpnd6"]
+[ext_resource type="Texture2D" uid="uid://dr12htlc36x8r" path="res://assets/sprites/ghost/fire/fire_ghost.png" id="3_1yj5s"]
+[ext_resource type="Texture2D" uid="uid://b057p14ksnj5j" path="res://assets/sprites/ghost/water/water_ghost.png" id="4_j4g21"]
+[ext_resource type="Script" path="res://scripts/aim.gd" id="4_wg8lc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uswyc"]
+atlas = ExtResource("2_xpnd6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xctt5"]
+atlas = ExtResource("3_1yj5s")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ttab"]
+atlas = ExtResource("4_j4g21")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0krr"]
+atlas = ExtResource("2_xpnd6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqwah"]
+atlas = ExtResource("3_1yj5s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh34u"]
+atlas = ExtResource("4_j4g21")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d7vtu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uswyc")
+}],
+"loop": true,
+"name": &"idle_electric",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xctt5")
+}],
+"loop": true,
+"name": &"idle_fire",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ttab")
+}],
+"loop": true,
+"name": &"idle_water",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0krr")
+}],
+"loop": true,
+"name": &"shooting_electric",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqwah")
+}],
+"loop": true,
+"name": &"shooting_fire",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh34u")
+}],
+"loop": true,
+"name": &"shooting_water",
+"speed": 1.0
+}]
+
+[node name="ghost" type="CharacterBody2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_vtgse")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_d7vtu")
+animation = &"idle_electric"
+
+[node name="Aim" type="Marker2D" parent="."]
+position = Vector2(-10, 9.53674e-07)
+script = ExtResource("4_wg8lc")
