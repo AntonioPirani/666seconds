@@ -20,11 +20,7 @@ var tween  # Declare tween variable
 
 func _ready():
 	hide_textbox()
-	queue_text("It is said that three restless souls haunt 
-	this old manor.")
-	queue_text("You are Father Benedict, tasked with breaking
-	 the curse.")
-	queue_text("But hurry, or your courage may falter.")
+	
 	
 	# Trigger the first message
 	#change_state(State.READY)

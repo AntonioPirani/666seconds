@@ -1,8 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://5asq5j35jtul"]
+[gd_scene load_steps=35 format=3 uid="uid://5asq5j35jtul"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_k0mp0"]
 [ext_resource type="PackedScene" uid="uid://bc7yw3u4m6uue" path="res://scenes/player.tscn" id="1_p2ntj"]
-[ext_resource type="AudioStream" uid="uid://dj7yleuq4ap1e" path="res://assets/sounds/musics/bg_music.mp3" id="2_3l87y"]
+[ext_resource type="AudioStream" uid="uid://ck0wojotu7vsi" path="res://assets/sounds/musics/ghostly forest compressed.mp3" id="2_e3ev4"]
 [ext_resource type="PackedScene" uid="uid://df8f5xj7y66my" path="res://scenes/ghost.tscn" id="3_2pqcv"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="3_fu6tu"]
 [ext_resource type="PackedScene" uid="uid://2t2j13qwgc5x" path="res://scenes/room.tscn" id="4_d58gt"]
@@ -22,6 +22,8 @@
 [ext_resource type="Script" path="res://scripts/textbox.gd" id="20_eqpts"]
 [ext_resource type="Script" path="res://scripts/journal_interaction.gd" id="22_ilrho"]
 [ext_resource type="Texture2D" uid="uid://cbk8sevrnmfar" path="res://assets/sprites/star_particle.png" id="22_mhgkx"]
+[ext_resource type="AudioStream" uid="uid://c4qg3at1gaf84" path="res://assets/sounds/musics/the cursed land.mp3" id="23_jc7uf"]
+[ext_resource type="AudioStream" uid="uid://b32bcq5oepro2" path="res://assets/sounds/effects/gate-closing.mp3" id="23_myt4a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_504d0"]
 size = Vector2(17, 19)
@@ -76,8 +78,9 @@ animations = [{
 script = ExtResource("1_k0mp0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_3l87y")
+stream = ExtResource("2_e3ev4")
 volume_db = -10.0
+parameters/looping = true
 script = ExtResource("3_fu6tu")
 
 [node name="Layout" parent="." instance=ExtResource("4_d58gt")]
@@ -345,6 +348,19 @@ scale = Vector2(0.5, 0.46875)
 sprite_frames = SubResource("SpriteFrames_7jn8p")
 autoplay = "default"
 frame_progress = 0.0057805
+
+[node name="Outside" type="Node2D" parent="."]
+
+[node name="BeginningPos" type="Marker2D" parent="Outside"]
+position = Vector2(2150.81, 502.225)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Outside"]
+stream = ExtResource("23_myt4a")
+volume_db = 24.0
+
+[node name="InsideAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_jc7uf")
+volume_db = -10.0
 
 [connection signal="body_entered" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_entered"]
 [connection signal="body_exited" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_exited"]

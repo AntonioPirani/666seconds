@@ -4,6 +4,12 @@ extends CharacterBody2D
 var screen_size
 var can_move = true
 var step_size = 16
+var is_auto_moving = false
+
+@onready var textbox: CanvasLayer = $"../SceneSettingText"
+@onready var marker: Marker2D = $"../Outside/BeginningPos"
+@onready var gateAudio: AudioStreamPlayer = $"../Outside/AudioStreamPlayer"
+
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -11,8 +17,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	var velocity = Vector2.ZERO
+
 	if can_move:
-		var velocity = Vector2.ZERO
 		if Input.is_action_pressed("move_right"):
 			velocity.x += 1
 		if Input.is_action_pressed("move_left"):
@@ -22,6 +29,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("move_up"):
 			velocity.y -= 1
 
+	if velocity != Vector2.ZERO or is_auto_moving:
 		if velocity.x != 0:
 			$AnimatedSprite2D.animation = "walk"
 			$AnimatedSprite2D.flip_h = velocity.x < 0
@@ -29,19 +37,21 @@ func _process(delta: float) -> void:
 			$AnimatedSprite2D.animation = "up"
 		elif velocity.y > 0:
 			$AnimatedSprite2D.animation = "down_still"
+		$AnimatedSprite2D.play()
+	else:
+		$AnimatedSprite2D.stop()
 
-		if velocity.length() > 0:
-			velocity = velocity.normalized() * speed
-			$AnimatedSprite2D.play()
-		else:
-			$AnimatedSprite2D.stop()
-
-		position += velocity * delta
-		move_and_slide()
+	if can_move:
+		position += velocity.normalized() * speed * delta
 
 func start_movement_sequence() -> void:
 	can_move = false
 	await get_tree().create_timer(1.0).timeout
+	
+	textbox.show_textbox()
+	textbox.queue_text("For several weeks, inexplicable phenomena have been occurring
+	 in the small town of Willow Creek, striking fear into the hearts of its residents.")
+	textbox.display_text()
 	
 	await move_in_direction(Vector2.UP, 12)
 	await get_tree().create_timer(1.0).timeout
@@ -51,20 +61,32 @@ func start_movement_sequence() -> void:
 
 	await move_in_direction(Vector2.LEFT, 4)
 	await get_tree().create_timer(1.0).timeout
+	textbox.queue_text("You, Father Matthew, have decided to get to 
+	the bottom of it and make your way to the abandoned Blackwood Manor, 
+	where you suspect the source of the haunting lies.")
+	textbox.display_text()
 
 	await move_in_direction(Vector2.RIGHT, 2)
 	await get_tree().create_timer(0.5).timeout
 	
 	await move_in_direction(Vector2.UP, 6)
-	
+
+	print("transition")
 	TransitionScreen.transition()
-	await move_in_direction(Vector2.UP, 2)
-	# make the player move to new section here
-	can_move = true
-	await TransitionScreen.on_transition_finisheds
-	can_move = true
+	await TransitionScreen.on_transition_finished
+	self.position = marker.global_position
+	print("Transition done")
+	await move_in_direction(Vector2.UP, 12)
+	await get_tree().create_timer(0.5).timeout
+	gateAudio.play()
+	print("Audio play called")
+	await get_tree().create_timer(1.0).timeout
+	await move_in_direction(Vector2.DOWN, 1)
+	
 
 func move_in_direction(direction: Vector2, steps: int) -> void:
+	is_auto_moving = true  # ← Enable animation updates in _process()
+
 	var anim = ""
 	if direction == Vector2.UP:
 		anim = "up"
@@ -86,7 +108,7 @@ func move_in_direction(direction: Vector2, steps: int) -> void:
 			position += move_amount
 			await get_tree().process_frame
 
-	# Short pause between steps
 	await get_tree().create_timer(0.05).timeout
 
 	$AnimatedSprite2D.stop()
+	is_auto_moving = false  # ← Done moving
