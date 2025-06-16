@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=4 uid="uid://2t2j13qwgc5x"]
 
 [ext_resource type="Texture2D" uid="uid://cd6yxg33riqbb" path="res://assets/tilesets/map/4 BigSet.png" id="1_gsthd"]
-[ext_resource type="Script" uid="uid://do161wj78pvwr" path="res://scenes/room.gd" id="1_katsu"]
+[ext_resource type="Script" uid="uid://do161wj78pvwr" path="res://scripts/room.gd" id="1_katsu"]
 [ext_resource type="Texture2D" uid="uid://dumf1e2ux1an6" path="res://assets/tilesets/map/Interiors_free_16x16.png" id="2_xvwhl"]
 [ext_resource type="Texture2D" uid="uid://b0nhwypviwb2l" path="res://assets/tilesets/outside/PixelCrawler/Environment/Props/Static/Trees/Model_02/Size_05.png" id="3_qre4e"]
 [ext_resource type="Texture2D" uid="uid://b70ht01llrxe7" path="res://assets/tilesets/outside/PixelCrawler/Environment/Props/Static/Rocks.png" id="4_lcqa0"]

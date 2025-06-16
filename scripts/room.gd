@@ -19,7 +19,7 @@ func close_gate():
 
 func replace_tile():
 	if swapped:
-		return  # Already swapped, do nothing
+		return
 	
 	var coords = Vector2i(117, 13)
 	var source_id = 17

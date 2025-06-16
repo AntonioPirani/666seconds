@@ -16,34 +16,33 @@ enum State {
 
 var current_state = State.READY
 var text_queue = []
-var tween  # Declare tween variable
+var tween
 
 func _ready():
+	print("Starting state: State.READY")
 	hide_textbox()
+	queue_text("Excuse me wanderer where can I find the bathroom?")
+	queue_text("Why do we not look like the others?")
+	queue_text("Because we are free assets from opengameart!")
+	queue_text("Thanks for watching!")
+	tween = get_tree().create_tween()
 	
-	
-	# Trigger the first message
-	#change_state(State.READY)
 
-func _process(_delta):  # Use _delta to silence the warning
+func _process(delta):
 	match current_state:
 		State.READY:
-			if text_queue.size() > 0:  # Correctly check if the queue has elements
-				#display_text()
-				hide_textbox()
+			if !text_queue.empty():
+				display_text()
 		State.READING:
-			player.can_move = false
 			if Input.is_action_just_pressed("ui_accept"):
-				if tween:
-					tween.kill()
-				label.visible_characters = -1
-				end_symbol.text = "<-"
+				label.percent_visible = 1.0
+				tween.remove_all()
+				end_symbol.text = "v"
 				change_state(State.FINISHED)
 		State.FINISHED:
 			if Input.is_action_just_pressed("ui_accept"):
 				change_state(State.READY)
 				hide_textbox()
-				player.can_move = true
 
 func queue_text(next_text):
 	text_queue.push_back(next_text)
@@ -59,38 +58,24 @@ func show_textbox():
 	textbox_container.show()
 
 func display_text():
-	if tween:
-		tween.kill()
-	
-	# Pop the text from the queue and assign it to the label
 	var next_text = text_queue.pop_front()
 	label.text = next_text
-	label.visible_characters = 0  # Reset visible_characters
-	
-	player.can_move = false
-	
-	# Then create the tween
-	tween = get_tree().create_tween()
-	tween.tween_property(label, "visible_characters", len(label.text), len(label.text) * CHAR_READ_RATE)
-	tween.connect("finished", Callable(self, "_on_tween_finished"))
-	
+	label.percent_visible = 0.0
 	change_state(State.READING)
 	show_textbox()
-	end_symbol.text = "..."
+	tween.interpolate_property(label, "percent_visible", 0.0, 1.0, len(next_text) * CHAR_READ_RATE, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
 
 func change_state(next_state):
 	current_state = next_state
+	match current_state:
+		State.READY:
+			print("Changing state to: State.READY")
+		State.READING:
+			print("Changing state to: State.READING")
+		State.FINISHED:
+			print("Changing state to: State.FINISHED")
 
-func _on_tween_finished():
-	end_symbol.text = "<-"
+func _on_Tween_tween_completed(object, key):
+	end_symbol.text = ">"
 	change_state(State.FINISHED)
-	player.can_move = true
-
-func force_close_textbox():
-	if tween:
-		tween.kill()
-	tween = null
-	hide_textbox()
-	change_state(State.READY)
-	player.can_move = true
-	text_queue.clear()

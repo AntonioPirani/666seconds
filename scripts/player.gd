@@ -50,8 +50,7 @@ func start_movement_sequence() -> void:
 	await get_tree().create_timer(1.0).timeout
 	
 	textbox.show_textbox()
-	textbox.queue_text("For several weeks, inexplicable phenomena have been occurring
-	 in the small town of Willow Creek, striking fear into the hearts of its residents.")
+	textbox.queue_text("For several weeks, inexplicable phenomena have been occurring in the small town of Willow Creek, striking fear into the hearts of its residents.")
 	textbox.display_text()
 	
 	await move_in_direction(Vector2.UP, 12)
@@ -62,9 +61,7 @@ func start_movement_sequence() -> void:
 
 	await move_in_direction(Vector2.LEFT, 4)
 	await get_tree().create_timer(1.0).timeout
-	textbox.queue_text("You, Father Matthew, have decided to get to 
-	the bottom of it and make your way to the abandoned Blackwood Manor, 
-	where you suspect the source of the haunting lies.")
+	textbox.queue_text("You, Father Matthew, have decided to get to the bottom of it and make your way to the abandoned Blackwood Manor.") #, where you suspect the source of the haunting lies.")
 	textbox.display_text()
 
 	await move_in_direction(Vector2.RIGHT, 2)
@@ -78,12 +75,14 @@ func start_movement_sequence() -> void:
 	self.position = marker.global_position
 	print("Transition done")
 	await move_in_direction(Vector2.UP, 12)
+	textbox.force_close_textbox()
+	
 	await get_tree().create_timer(0.5).timeout
 	emit_signal("close_gate_signal")
 	gateAudio.play()
 	print("Audio play called")
 	
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.2).timeout
 	await move_in_direction(Vector2.DOWN, 1)
 	
 	

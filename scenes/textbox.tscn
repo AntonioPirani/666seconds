@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bq25owup2md48"]
+[gd_scene load_steps=4 format=3 uid="uid://bq25owup2md48"]
+
+[ext_resource type="FontFile" uid="uid://dskusxta3hjmf" path="res://assets/fonts/yoster.ttf" id="1_nyk3b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j65bo"]
 bg_color = Color(0, 0, 0, 1)
@@ -8,6 +10,9 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyk3b"]
+bg_color = Color(0.323584, 0.323584, 0.323584, 1)
+
 [node name="Textbox" type="CanvasLayer"]
 
 [node name="TextboxContainer" type="MarginContainer" parent="."]
@@ -15,12 +20,17 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
+offset_left = -12.0
 offset_top = -188.0
-offset_right = -23.0
+offset_right = 10.0
 offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 16
 
 [node name="Panel" type="Panel" parent="TextboxContainer"]
 layout_mode = 2
@@ -28,13 +38,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_j65bo")
 
 [node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="Panel" type="Panel" parent="TextboxContainer/MarginContainer"]
+visible = false
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nyk3b")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer"]
 layout_mode = 2
@@ -45,9 +57,13 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 40
 
 [node name="Label" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1000, 10)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("1_nyk3b")
+theme_override_font_sizes/font_size = 24
+text = " "
+autowrap_mode = 3
 
 [node name="End" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
