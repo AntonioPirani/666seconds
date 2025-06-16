@@ -9,11 +9,12 @@ var is_auto_moving = false
 @onready var textbox: CanvasLayer = $"../SceneSettingText"
 @onready var marker: Marker2D = $"../Outside/BeginningPos"
 @onready var gateAudio: AudioStreamPlayer = $"../Outside/AudioStreamPlayer"
+@export var layout_node: Node
+signal close_gate_signal
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	#start_movement_sequence()
-
+	start_movement_sequence()
 
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
@@ -78,10 +79,14 @@ func start_movement_sequence() -> void:
 	print("Transition done")
 	await move_in_direction(Vector2.UP, 12)
 	await get_tree().create_timer(0.5).timeout
+	emit_signal("close_gate_signal")
 	gateAudio.play()
 	print("Audio play called")
+	
 	await get_tree().create_timer(1.0).timeout
 	await move_in_direction(Vector2.DOWN, 1)
+	
+	
 	
 
 func move_in_direction(direction: Vector2, steps: int) -> void:
