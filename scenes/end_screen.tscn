@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cu6tuvjbil56"]
 
 [ext_resource type="Texture2D" uid="uid://c5dyn0pac5d3j" path="res://assets/sprites/UI/menu_bg.png" id="1_dyiid"]
-[ext_resource type="Script" path="res://scripts/end_screen_label.gd" id="2_a1pe6"]
-[ext_resource type="FontFile" uid="uid://bxdceub01jtoy" path="res://assets/fonts/DoubleHomicide.ttf" id="2_uskov"]
+[ext_resource type="Script" uid="uid://kmapw50aoy3s" path="res://scripts/end_screen_label.gd" id="2_a1pe6"]
+[ext_resource type="FontFile" uid="uid://db1afvq6nh352" path="res://assets/fonts/DoubleHomicide.ttf" id="2_uskov"]
 
 [node name="EndScreen" type="Control"]
 layout_mode = 3

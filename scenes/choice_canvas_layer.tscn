@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://t41ehcdpq7f5"]
 
-[ext_resource type="Script" path="res://scripts/choices_node.gd" id="1_ds38t"]
+[ext_resource type="Script" uid="uid://dj0rkgjqi7isc" path="res://scripts/choices_node.gd" id="1_ds38t"]
 [ext_resource type="FontFile" uid="uid://db1afvq6nh352" path="res://assets/fonts/DoubleHomicide.ttf" id="2_k41ki"]
-[ext_resource type="Script" path="res://scripts/choices_dialog.gd" id="3_oxx0h"]
+[ext_resource type="Script" uid="uid://dp5lm306t4wjk" path="res://scripts/choices_dialog.gd" id="3_oxx0h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n1dke"]
 font = ExtResource("2_k41ki")

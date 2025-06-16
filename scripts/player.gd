@@ -10,10 +10,9 @@ var is_auto_moving = false
 @onready var marker: Marker2D = $"../Outside/BeginningPos"
 @onready var gateAudio: AudioStreamPlayer = $"../Outside/AudioStreamPlayer"
 
-
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	start_movement_sequence()
+	#start_movement_sequence()
 
 
 func _process(delta: float) -> void:
@@ -42,7 +41,8 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.stop()
 
 	if can_move:
-		position += velocity.normalized() * speed * delta
+		self.velocity = velocity.normalized() * speed
+		move_and_slide()
 
 func start_movement_sequence() -> void:
 	can_move = false

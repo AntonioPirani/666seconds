@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://df8f5xj7y66my"]
 
-[ext_resource type="Script" path="res://scripts/ghost.gd" id="1_vtgse"]
+[ext_resource type="Script" uid="uid://chtv6sfa4qdip" path="res://scripts/ghost.gd" id="1_vtgse"]
 [ext_resource type="Texture2D" uid="uid://cl1gw4k8druaj" path="res://assets/sprites/ghost/electric/electric_ghost.png" id="2_xpnd6"]
 [ext_resource type="Texture2D" uid="uid://dr12htlc36x8r" path="res://assets/sprites/ghost/fire/fire_ghost.png" id="3_1yj5s"]
 [ext_resource type="Texture2D" uid="uid://b057p14ksnj5j" path="res://assets/sprites/ghost/water/water_ghost.png" id="4_j4g21"]
-[ext_resource type="Script" path="res://scripts/aim.gd" id="4_wg8lc"]
+[ext_resource type="Script" uid="uid://de6ilo1isryxr" path="res://scripts/aim.gd" id="4_wg8lc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uswyc"]
 atlas = ExtResource("2_xpnd6")

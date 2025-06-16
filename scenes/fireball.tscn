@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbvt1vv4q6ar0"]
 
-[ext_resource type="Script" path="res://scripts/fireball.gd" id="1_3uv0g"]
+[ext_resource type="Script" uid="uid://bhafuldang46t" path="res://scripts/fireball.gd" id="1_3uv0g"]
 [ext_resource type="Texture2D" uid="uid://det48xj05tf5g" path="res://assets/sprites/fireball/fireball.png" id="1_w6skh"]
 [ext_resource type="Texture2D" uid="uid://bh6tufbt3su1t" path="res://assets/sprites/fireball/electricball.png" id="3_fknjq"]
 [ext_resource type="Texture2D" uid="uid://qft1vgiv2xi3" path="res://assets/sprites/fireball/waterball.png" id="4_78n0r"]
