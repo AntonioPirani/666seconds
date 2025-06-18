@@ -19,7 +19,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
 
-	if can_move:
+	# Only allow input movement if not auto-moving
+	if can_move and not is_auto_moving:
 		if Input.is_action_pressed("move_right"):
 			velocity.x += 1
 		if Input.is_action_pressed("move_left"):
@@ -29,21 +30,26 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("move_up"):
 			velocity.y -= 1
 
-	if velocity != Vector2.ZERO or is_auto_moving:
-		if velocity.x != 0:
-			$AnimatedSprite2D.animation = "walk"
-			$AnimatedSprite2D.flip_h = velocity.x < 0
-		elif velocity.y < 0:
-			$AnimatedSprite2D.animation = "up"
-		elif velocity.y > 0:
-			$AnimatedSprite2D.animation = "down_still"
-		$AnimatedSprite2D.play()
-	else:
-		$AnimatedSprite2D.stop()
-
 	if can_move:
 		self.velocity = velocity.normalized() * speed
 		move_and_slide()
+		
+	position = position.round()
+
+	# Animate based on context
+	if not is_auto_moving:
+		if velocity != Vector2.ZERO:
+			if velocity.x != 0:
+				$AnimatedSprite2D.animation = "walk"
+				$AnimatedSprite2D.flip_h = velocity.x < 0
+			elif velocity.y < 0:
+				$AnimatedSprite2D.animation = "up"
+			elif velocity.y > 0:
+				$AnimatedSprite2D.animation = "down_still"
+			$AnimatedSprite2D.play()
+		else:
+			$AnimatedSprite2D.stop()
+
 
 func start_movement_sequence() -> void:
 	can_move = false
@@ -85,7 +91,7 @@ func start_movement_sequence() -> void:
 	await get_tree().create_timer(0.2).timeout
 	await move_in_direction(Vector2.DOWN, 1)
 	
-	
+	can_move = true
 	
 
 func move_in_direction(direction: Vector2, steps: int) -> void:

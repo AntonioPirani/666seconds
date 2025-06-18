@@ -13,7 +13,8 @@ func _on_body_entered(body: Node2D) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		textbox.show_textbox()
-		textbox.queue_text("This is the journal, read it carefully")
+		textbox.queue_text("This is the grave of the owner of the mansion. It is said he buried all of his belongings on the property.")
+		textbox.display_text()
 		set_process(false)
 		
 func _on_body_exited(body: Node2D) -> void:

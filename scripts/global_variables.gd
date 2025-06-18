@@ -21,3 +21,5 @@ var ghost_type = ""
 var ghost_upstairs = true
 
 var change_ghost = true
+
+var hasShovel = false

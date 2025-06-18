@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5asq5j35jtul"]
+[gd_scene load_steps=21 format=3 uid="uid://5asq5j35jtul"]
 
 [ext_resource type="Script" uid="uid://bfvp6xv3rylpn" path="res://scripts/main.gd" id="1_k0mp0"]
 [ext_resource type="PackedScene" uid="uid://bc7yw3u4m6uue" path="res://scenes/player.tscn" id="1_p2ntj"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://df8f5xj7y66my" path="res://scenes/ghost.tscn" id="3_2pqcv"]
 [ext_resource type="Script" uid="uid://d0x32hu1867am" path="res://scripts/music.gd" id="3_fu6tu"]
 [ext_resource type="PackedScene" uid="uid://2t2j13qwgc5x" path="res://scenes/room.tscn" id="4_d58gt"]
+[ext_resource type="Script" uid="uid://pxg77jl8dgol" path="res://scripts/grave_interaction.gd" id="8_trceg"]
+[ext_resource type="Script" uid="uid://c6b4hjvn1wfgo" path="res://scripts/pond_interaction.gd" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bq25owup2md48" path="res://scenes/textbox.tscn" id="19_t6sd6"]
 [ext_resource type="Script" uid="uid://dwkyp48pdc5uk" path="res://scripts/textbox.gd" id="20_eqpts"]
 [ext_resource type="Script" uid="uid://dj582f15r8p8" path="res://scripts/journal_interaction.gd" id="22_ilrho"]
@@ -15,13 +17,13 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ktb6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_55rg1"]
-atlas = ExtResource("22_mhgkx")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_v88us"]
 atlas = ExtResource("22_mhgkx")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55rg1"]
+atlas = ExtResource("22_mhgkx")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4k5jw"]
 atlas = ExtResource("22_mhgkx")
@@ -35,10 +37,10 @@ region = Rect2(96, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 3.0,
-"texture": SubResource("AtlasTexture_55rg1")
+"texture": SubResource("AtlasTexture_v88us")
 }, {
 "duration": 3.0,
-"texture": SubResource("AtlasTexture_v88us")
+"texture": SubResource("AtlasTexture_55rg1")
 }, {
 "duration": 3.0,
 "texture": SubResource("AtlasTexture_4k5jw")
@@ -77,21 +79,6 @@ position = Vector2(3, 131)
 [node name="SceneSettingText" parent="." instance=ExtResource("19_t6sd6")]
 script = ExtResource("20_eqpts")
 
-[node name="JournalInteraction" type="Node2D" parent="."]
-position = Vector2(664, 434)
-
-[node name="Area2D" type="Area2D" parent="JournalInteraction"]
-script = ExtResource("22_ilrho")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JournalInteraction/Area2D"]
-shape = SubResource("RectangleShape2D_1ktb6")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="JournalInteraction/Area2D"]
-scale = Vector2(0.5, 0.46875)
-sprite_frames = SubResource("SpriteFrames_7jn8p")
-autoplay = "default"
-frame_progress = 0.0057805
-
 [node name="Outside" type="Node2D" parent="."]
 
 [node name="BeginningPos" type="Marker2D" parent="Outside"]
@@ -108,5 +95,51 @@ volume_db = -10.0
 [node name="Layout" parent="." instance=ExtResource("4_d58gt")]
 position = Vector2(0, 124)
 
-[connection signal="body_entered" from="JournalInteraction/Area2D" to="JournalInteraction/Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="JournalInteraction/Area2D" to="JournalInteraction/Area2D" method="_on_body_exited"]
+[node name="Interactions" type="Node2D" parent="."]
+position = Vector2(664, 434)
+
+[node name="Grave" type="Area2D" parent="Interactions"]
+position = Vector2(1629, -194)
+script = ExtResource("8_trceg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Grave"]
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interactions/Grave"]
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
+[node name="Journal" type="Area2D" parent="Interactions"]
+position = Vector2(-3, -3)
+script = ExtResource("22_ilrho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Journal"]
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interactions/Journal"]
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.0057805
+
+[node name="Pond" type="Area2D" parent="Interactions"]
+position = Vector2(1393, -197)
+script = ExtResource("14_a8y0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Pond"]
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interactions/Pond"]
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
+[connection signal="body_entered" from="Interactions/Grave" to="Interactions/Grave" method="_on_body_entered"]
+[connection signal="body_exited" from="Interactions/Grave" to="Interactions/Grave" method="_on_body_exited"]
+[connection signal="body_entered" from="Interactions/Journal" to="Interactions/Journal" method="_on_body_entered"]
+[connection signal="body_exited" from="Interactions/Journal" to="Interactions/Journal" method="_on_body_exited"]
+[connection signal="body_entered" from="Interactions/Pond" to="Interactions/Pond" method="_on_body_entered"]
+[connection signal="body_exited" from="Interactions/Pond" to="Interactions/Pond" method="_on_body_exited"]
