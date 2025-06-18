@@ -80,7 +80,7 @@ func start_movement_sequence() -> void:
 	await TransitionScreen.on_transition_finished
 	self.position = marker.global_position
 	print("Transition done")
-	await move_in_direction(Vector2.UP, 12)
+	await move_in_direction(Vector2.UP, 11)
 	textbox.force_close_textbox()
 	
 	await get_tree().create_timer(0.5).timeout

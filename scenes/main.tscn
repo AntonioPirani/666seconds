@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://5asq5j35jtul"]
+[gd_scene load_steps=24 format=3 uid="uid://5asq5j35jtul"]
 
 [ext_resource type="Script" uid="uid://bfvp6xv3rylpn" path="res://scripts/main.gd" id="1_k0mp0"]
 [ext_resource type="PackedScene" uid="uid://bc7yw3u4m6uue" path="res://scenes/player.tscn" id="1_p2ntj"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://d0x32hu1867am" path="res://scripts/music.gd" id="3_fu6tu"]
 [ext_resource type="PackedScene" uid="uid://2t2j13qwgc5x" path="res://scenes/room.tscn" id="4_d58gt"]
 [ext_resource type="Script" uid="uid://pxg77jl8dgol" path="res://scripts/grave_interaction.gd" id="8_trceg"]
+[ext_resource type="Script" uid="uid://bwkd734bsqomy" path="res://scripts/front_door.gd" id="12_jbj1t"]
+[ext_resource type="Script" uid="uid://cvmistyog4w64" path="res://scripts/window_interaction.gd" id="12_jkv2x"]
 [ext_resource type="Script" uid="uid://c6b4hjvn1wfgo" path="res://scripts/pond_interaction.gd" id="14_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bq25owup2md48" path="res://scenes/textbox.tscn" id="19_t6sd6"]
 [ext_resource type="Script" uid="uid://dwkyp48pdc5uk" path="res://scripts/textbox.gd" id="20_eqpts"]
@@ -53,14 +55,10 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj1t"]
+
 [node name="Main" type="Node"]
 script = ExtResource("1_k0mp0")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_e3ev4")
-volume_db = -10.0
-parameters/looping = true
-script = ExtResource("3_fu6tu")
 
 [node name="Player" parent="." instance=ExtResource("1_p2ntj")]
 z_index = 1
@@ -73,73 +71,101 @@ zoom = Vector2(4.15, 4.15)
 z_index = 1
 position = Vector2(939, 681)
 
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(3, 131)
-
 [node name="SceneSettingText" parent="." instance=ExtResource("19_t6sd6")]
 script = ExtResource("20_eqpts")
+
+[node name="Layout" parent="." instance=ExtResource("4_d58gt")]
+position = Vector2(0, 124)
 
 [node name="Outside" type="Node2D" parent="."]
 
 [node name="BeginningPos" type="Marker2D" parent="Outside"]
-position = Vector2(2150.81, 502.225)
+position = Vector2(2148, 528)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Outside"]
 stream = ExtResource("23_myt4a")
 volume_db = 24.0
 
-[node name="InsideAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("23_jc7uf")
-volume_db = -10.0
-
-[node name="Layout" parent="." instance=ExtResource("4_d58gt")]
-position = Vector2(0, 124)
-
-[node name="Interactions" type="Node2D" parent="."]
+[node name="Interactions" type="Node2D" parent="Outside"]
 position = Vector2(664, 434)
 
-[node name="Grave" type="Area2D" parent="Interactions"]
+[node name="Grave" type="Area2D" parent="Outside/Interactions"]
 position = Vector2(1629, -194)
 script = ExtResource("8_trceg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Grave"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Grave"]
 shape = SubResource("RectangleShape2D_1ktb6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interactions/Grave"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/Grave"]
 scale = Vector2(0.5, 0.46875)
 sprite_frames = SubResource("SpriteFrames_7jn8p")
 autoplay = "default"
 frame_progress = 0.435948
 
-[node name="Journal" type="Area2D" parent="Interactions"]
+[node name="Journal" type="Area2D" parent="Outside/Interactions"]
 position = Vector2(-3, -3)
 script = ExtResource("22_ilrho")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Journal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Journal"]
 shape = SubResource("RectangleShape2D_1ktb6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interactions/Journal"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/Journal"]
 scale = Vector2(0.5, 0.46875)
 sprite_frames = SubResource("SpriteFrames_7jn8p")
 autoplay = "default"
 frame_progress = 0.0057805
 
-[node name="Pond" type="Area2D" parent="Interactions"]
+[node name="Pond" type="Area2D" parent="Outside/Interactions"]
 position = Vector2(1393, -197)
 script = ExtResource("14_a8y0u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Pond"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Pond"]
 shape = SubResource("RectangleShape2D_1ktb6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interactions/Pond"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/Pond"]
 scale = Vector2(0.5, 0.46875)
 sprite_frames = SubResource("SpriteFrames_7jn8p")
 autoplay = "default"
 frame_progress = 0.435948
 
-[connection signal="body_entered" from="Interactions/Grave" to="Interactions/Grave" method="_on_body_entered"]
-[connection signal="body_exited" from="Interactions/Grave" to="Interactions/Grave" method="_on_body_exited"]
-[connection signal="body_entered" from="Interactions/Journal" to="Interactions/Journal" method="_on_body_entered"]
-[connection signal="body_exited" from="Interactions/Journal" to="Interactions/Journal" method="_on_body_exited"]
-[connection signal="body_entered" from="Interactions/Pond" to="Interactions/Pond" method="_on_body_entered"]
-[connection signal="body_exited" from="Interactions/Pond" to="Interactions/Pond" method="_on_body_exited"]
+[node name="FrontDoor" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(1477, -333)
+script = ExtResource("12_jbj1t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/FrontDoor"]
+shape = SubResource("RectangleShape2D_jbj1t")
+
+[node name="Window" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(1629, -194)
+script = ExtResource("12_jkv2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Window"]
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/Window"]
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Outside"]
+stream = ExtResource("2_e3ev4")
+volume_db = -10.0
+parameters/looping = true
+script = ExtResource("3_fu6tu")
+
+[node name="Inside" type="Node2D" parent="."]
+position = Vector2(664, 434)
+
+[node name="InsideAudio" type="AudioStreamPlayer" parent="Inside"]
+stream = ExtResource("23_jc7uf")
+volume_db = -10.0
+
+[connection signal="body_entered" from="Outside/Interactions/Grave" to="Outside/Interactions/Grave" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Grave" to="Outside/Interactions/Grave" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/Journal" to="Outside/Interactions/Journal" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Journal" to="Outside/Interactions/Journal" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/Pond" to="Outside/Interactions/Pond" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Pond" to="Outside/Interactions/Pond" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/Window" to="Outside/Interactions/Window" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Window" to="Outside/Interactions/Window" method="_on_body_exited"]
