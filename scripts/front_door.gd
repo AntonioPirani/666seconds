@@ -1,7 +1,11 @@
 extends Area2D
 
-@onready var player: CharacterBody2D = $"../../Player"
-@onready var textbox: CanvasLayer = $"../../SceneSettingText"
+@onready var player: CharacterBody2D = $"../../../Player"
+@onready var textbox: CanvasLayer = $"../../../SceneSettingText"
+@onready var marker: Marker2D = $"../../../Inside/GroundFloor/Entrance/EntranceMarker"
+@onready var audio_stream_player_2d: AudioStreamPlayer = $"../../../Utils/DoorSound"
+
+
 
 func _ready() -> void:
 	set_process(false)
@@ -12,10 +16,14 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
-		textbox.show_textbox()
-		textbox.queue_text("Modify this code to enter the house")
-		textbox.display_text()
+		move_player()
 		set_process(false)
 		
 func _on_body_exited(body: Node2D) -> void:
 	set_process(false)
+
+func move_player() -> void:
+	audio_stream_player_2d.play()
+	TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
+	player.global_position = marker.global_position

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://5asq5j35jtul"]
+[gd_scene load_steps=26 format=3 uid="uid://5asq5j35jtul"]
 
 [ext_resource type="Script" uid="uid://bfvp6xv3rylpn" path="res://scripts/main.gd" id="1_k0mp0"]
 [ext_resource type="PackedScene" uid="uid://bc7yw3u4m6uue" path="res://scenes/player.tscn" id="1_p2ntj"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bwkd734bsqomy" path="res://scripts/front_door.gd" id="12_jbj1t"]
 [ext_resource type="Script" uid="uid://cvmistyog4w64" path="res://scripts/window_interaction.gd" id="12_jkv2x"]
 [ext_resource type="Script" uid="uid://c6b4hjvn1wfgo" path="res://scripts/pond_interaction.gd" id="14_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://120qw55bdsgl" path="res://assets/sounds/effects/doorClose.mp3" id="17_muem4"]
 [ext_resource type="PackedScene" uid="uid://bq25owup2md48" path="res://scenes/textbox.tscn" id="19_t6sd6"]
 [ext_resource type="Script" uid="uid://dwkyp48pdc5uk" path="res://scripts/textbox.gd" id="20_eqpts"]
 [ext_resource type="Script" uid="uid://dj582f15r8p8" path="res://scripts/journal_interaction.gd" id="22_ilrho"]
@@ -56,6 +57,8 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj1t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k0mp0")
@@ -135,8 +138,10 @@ script = ExtResource("12_jbj1t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/FrontDoor"]
 shape = SubResource("RectangleShape2D_jbj1t")
 
+[node name="Marker2D" type="Marker2D" parent="Outside/Interactions/FrontDoor"]
+
 [node name="Window" type="Area2D" parent="Outside/Interactions"]
-position = Vector2(1629, -194)
+position = Vector2(1367, -337)
 script = ExtResource("12_jkv2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Window"]
@@ -160,6 +165,28 @@ position = Vector2(664, 434)
 [node name="InsideAudio" type="AudioStreamPlayer" parent="Inside"]
 stream = ExtResource("23_jc7uf")
 volume_db = -10.0
+
+[node name="GroundFloor" type="Node2D" parent="Inside"]
+
+[node name="Entrance" type="Node2D" parent="Inside/GroundFloor"]
+position = Vector2(61.4576, -4.03522)
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/GroundFloor/Entrance"]
+
+[node name="EntranceArea" type="Area2D" parent="Inside/GroundFloor/Entrance"]
+position = Vector2(-0.457642, 7.03522)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/GroundFloor/Entrance/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="FirstFloor" type="Node2D" parent="Inside"]
+
+[node name="Basement" type="Node2D" parent="Inside"]
+
+[node name="Utils" type="Node2D" parent="."]
+
+[node name="DoorSound" type="AudioStreamPlayer" parent="Utils"]
+stream = ExtResource("17_muem4")
 
 [connection signal="body_entered" from="Outside/Interactions/Grave" to="Outside/Interactions/Grave" method="_on_body_entered"]
 [connection signal="body_exited" from="Outside/Interactions/Grave" to="Outside/Interactions/Grave" method="_on_body_exited"]

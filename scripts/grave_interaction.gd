@@ -1,7 +1,7 @@
 extends Area2D
 
-@onready var player: CharacterBody2D = $"../../Player"
-@onready var textbox: CanvasLayer = $"../../SceneSettingText"
+@onready var player: CharacterBody2D = $"../../../Player"
+@onready var textbox: CanvasLayer = $"../../../SceneSettingText"
 
 func _ready() -> void:
 	set_process(false)
