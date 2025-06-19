@@ -65,7 +65,7 @@ script = ExtResource("1_k0mp0")
 
 [node name="Player" parent="." instance=ExtResource("1_p2ntj")]
 z_index = 1
-position = Vector2(1410.91, 643.16)
+position = Vector2(2144, 134)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4.15, 4.15)
@@ -194,5 +194,7 @@ stream = ExtResource("17_muem4")
 [connection signal="body_exited" from="Outside/Interactions/Journal" to="Outside/Interactions/Journal" method="_on_body_exited"]
 [connection signal="body_entered" from="Outside/Interactions/Pond" to="Outside/Interactions/Pond" method="_on_body_entered"]
 [connection signal="body_exited" from="Outside/Interactions/Pond" to="Outside/Interactions/Pond" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/FrontDoor" to="Outside/Interactions/FrontDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/FrontDoor" to="Outside/Interactions/FrontDoor" method="_on_body_exited"]
 [connection signal="body_entered" from="Outside/Interactions/Window" to="Outside/Interactions/Window" method="_on_body_entered"]
 [connection signal="body_exited" from="Outside/Interactions/Window" to="Outside/Interactions/Window" method="_on_body_exited"]

@@ -10,11 +10,11 @@ var is_auto_moving = false
 @onready var marker: Marker2D = $"../Outside/BeginningPos"
 @onready var gateAudio: AudioStreamPlayer = $"../Outside/AudioStreamPlayer"
 @export var layout_node: Node
-signal close_gate_signal
+signal close_gate_signal#
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	start_movement_sequence()
+	#start_movement_sequence()
 
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
