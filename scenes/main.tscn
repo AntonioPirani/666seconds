@@ -1,24 +1,64 @@
-[gd_scene load_steps=26 format=3 uid="uid://5asq5j35jtul"]
+[gd_scene load_steps=72 format=3 uid="uid://5asq5j35jtul"]
 
 [ext_resource type="Script" uid="uid://bfvp6xv3rylpn" path="res://scripts/main.gd" id="1_k0mp0"]
 [ext_resource type="PackedScene" uid="uid://bc7yw3u4m6uue" path="res://scenes/player.tscn" id="1_p2ntj"]
 [ext_resource type="AudioStream" uid="uid://ck0wojotu7vsi" path="res://assets/sounds/musics/ghostly forest compressed.mp3" id="2_e3ev4"]
 [ext_resource type="PackedScene" uid="uid://df8f5xj7y66my" path="res://scenes/ghost.tscn" id="3_2pqcv"]
-[ext_resource type="Script" uid="uid://d0x32hu1867am" path="res://scripts/music.gd" id="3_fu6tu"]
 [ext_resource type="PackedScene" uid="uid://2t2j13qwgc5x" path="res://scenes/room.tscn" id="4_d58gt"]
 [ext_resource type="Script" uid="uid://pxg77jl8dgol" path="res://scripts/grave_interaction.gd" id="8_trceg"]
 [ext_resource type="Script" uid="uid://bwkd734bsqomy" path="res://scripts/front_door.gd" id="12_jbj1t"]
 [ext_resource type="Script" uid="uid://cvmistyog4w64" path="res://scripts/window_interaction.gd" id="12_jkv2x"]
 [ext_resource type="Script" uid="uid://c6b4hjvn1wfgo" path="res://scripts/pond_interaction.gd" id="14_a8y0u"]
+[ext_resource type="Script" uid="uid://cthmvi3fmoa5c" path="res://scripts/shovel_interaction.gd" id="14_dp3eg"]
+[ext_resource type="Script" uid="uid://dg1em7nxetqm7" path="res://scripts/ghost_interaction.gd" id="15_txyw0"]
+[ext_resource type="Script" uid="uid://btg72jjyqtm82" path="res://scripts/tv_interaction.gd" id="16_j2jfr"]
 [ext_resource type="AudioStream" uid="uid://120qw55bdsgl" path="res://assets/sounds/effects/doorClose.mp3" id="17_muem4"]
+[ext_resource type="Script" uid="uid://bohyymx28rmiq" path="res://scripts/mirror.gd" id="17_o7ddy"]
+[ext_resource type="Script" uid="uid://xatwgvj15pb5" path="res://scripts/table.gd" id="18_0loja"]
+[ext_resource type="Script" uid="uid://uypoc4wpax1v" path="res://scripts/audioplay.gd" id="18_2f3dj"]
+[ext_resource type="Script" uid="uid://cpud70fbq5xjs" path="res://scripts/entrance_area.gd" id="18_yq6so"]
+[ext_resource type="Script" uid="uid://cjtfcibp10ofk" path="res://scripts/wc.gd" id="19_ids8r"]
 [ext_resource type="PackedScene" uid="uid://bq25owup2md48" path="res://scenes/textbox.tscn" id="19_t6sd6"]
+[ext_resource type="Script" uid="uid://jbomq5augd8k" path="res://scenes/entrance_area.gd" id="19_tel4y"]
+[ext_resource type="Script" uid="uid://d2vamn3f2dbm2" path="res://scripts/bed.gd" id="20_0loja"]
 [ext_resource type="Script" uid="uid://dwkyp48pdc5uk" path="res://scripts/textbox.gd" id="20_eqpts"]
+[ext_resource type="Script" uid="uid://4mvwqke8sxef" path="res://scripts/entrance_area2.gd" id="20_qkpxi"]
+[ext_resource type="AudioStream" uid="uid://dijaa4pbg3ud3" path="res://assets/sounds/musics/newmusic/m1.mp3" id="20_yq6so"]
+[ext_resource type="Script" uid="uid://rfj3uicmt1gw" path="res://scripts/stove.gd" id="21_1v6qk"]
+[ext_resource type="Script" uid="uid://cmqkkfxbbeikh" path="res://scripts/entrance_areablue.gd" id="21_5q0nq"]
+[ext_resource type="AudioStream" uid="uid://d30ucgkx35dne" path="res://assets/sounds/musics/newmusic/m2.mp3" id="21_fv21b"]
+[ext_resource type="Script" uid="uid://ds4x6dvkr4he4" path="res://scripts/clock.gd" id="22_augu2"]
+[ext_resource type="Script" uid="uid://psdt61i1hid8" path="res://scripts/entrance_areaorangegd.gd" id="22_dgi5k"]
 [ext_resource type="Script" uid="uid://dj582f15r8p8" path="res://scripts/journal_interaction.gd" id="22_ilrho"]
 [ext_resource type="Texture2D" uid="uid://cbk8sevrnmfar" path="res://assets/sprites/star_particle.png" id="22_mhgkx"]
+[ext_resource type="AudioStream" uid="uid://b5hn2hnttk7fg" path="res://assets/sounds/musics/newmusic/m3.mp3" id="22_tel4y"]
+[ext_resource type="Script" uid="uid://tssppcx4yq04" path="res://scripts/kitchen.gd" id="23_fuf3a"]
 [ext_resource type="AudioStream" uid="uid://c4qg3at1gaf84" path="res://assets/sounds/musics/the cursed land.mp3" id="23_jc7uf"]
 [ext_resource type="AudioStream" uid="uid://b32bcq5oepro2" path="res://assets/sounds/effects/gate-closing.mp3" id="23_myt4a"]
+[ext_resource type="AudioStream" uid="uid://1ws54ud7akjp" path="res://assets/sounds/musics/newmusic/m4.mp3" id="23_qkpxi"]
+[ext_resource type="Script" uid="uid://c22bqgdgsksk1" path="res://scripts/cabinet.gd" id="23_tm6hj"]
+[ext_resource type="AudioStream" uid="uid://dw03hownbpa10" path="res://assets/sounds/musics/newmusic/m5.mp3" id="24_5q0nq"]
+[ext_resource type="Script" uid="uid://dsme4qx5cxi3x" path="res://scripts/InKitchen.gd" id="24_pibwh"]
+[ext_resource type="Script" uid="uid://dii78om0q7xda" path="res://scenes/InBlue.gd" id="25_c6pm6"]
+[ext_resource type="AudioStream" uid="uid://d1iysqn4v2ec7" path="res://assets/sounds/musics/newmusic/m6.mp3" id="25_dgi5k"]
+[ext_resource type="Script" uid="uid://cuywcb5r83lk6" path="res://scripts/InOrange.gd" id="26_5he1u"]
+[ext_resource type="AudioStream" uid="uid://c041vn81b38i1" path="res://assets/sounds/musics/newmusic/m7.mp3" id="26_j8jky"]
+[ext_resource type="AudioStream" uid="uid://ba7uqh517ymqp" path="res://assets/sounds/musics/newmusic/m8.mp3" id="27_kmb1v"]
+[ext_resource type="Script" uid="uid://cfcnjqxinei5o" path="res://scripts/InYellow.gd" id="27_vchkt"]
+[ext_resource type="AudioStream" uid="uid://ibf1oq3gfhwe" path="res://assets/sounds/musics/newmusic/m9.mp3" id="28_fuf3a"]
+[ext_resource type="Script" uid="uid://81hmudj5hv58" path="res://scripts/inWhite.gd" id="28_txyw0"]
+[ext_resource type="Script" uid="uid://bkekkvqu1w6tj" path="res://scripts/corr2down.gd" id="29_vc5cj"]
+[ext_resource type="Script" uid="uid://26ssu7d4rptd" path="res://scripts/corr2up.gd" id="30_nvyfr"]
+[ext_resource type="Script" uid="uid://bkqapc14mnxq2" path="res://scripts/corridorYellow.gd" id="31_ty1g6"]
+[ext_resource type="Script" uid="uid://bqj6epss7m62f" path="res://scripts/corridorWhite.gd" id="32_j2jfr"]
+[ext_resource type="Script" uid="uid://rfmvhheahhe8" path="res://scripts/basement.gd" id="33_bjg73"]
+[ext_resource type="Script" uid="uid://22huwh0se8c5" path="res://scripts/attic.gd" id="34_bu4jf"]
+[ext_resource type="Texture2D" uid="uid://cl1gw4k8druaj" path="res://assets/sprites/ghost/electric/electric_ghost.png" id="47_ty1g6"]
+[ext_resource type="Texture2D" uid="uid://dr12htlc36x8r" path="res://assets/sprites/ghost/fire/fire_ghost.png" id="48_j2jfr"]
+[ext_resource type="Texture2D" uid="uid://b057p14ksnj5j" path="res://assets/sprites/ghost/water/water_ghost.png" id="49_bjg73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ktb6"]
+size = Vector2(27, 22.375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v88us"]
 atlas = ExtResource("22_mhgkx")
@@ -60,19 +100,95 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uswyc"]
+atlas = ExtResource("47_ty1g6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xctt5"]
+atlas = ExtResource("48_j2jfr")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ttab"]
+atlas = ExtResource("49_bjg73")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0krr"]
+atlas = ExtResource("47_ty1g6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqwah"]
+atlas = ExtResource("48_j2jfr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh34u"]
+atlas = ExtResource("49_bjg73")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bu4jf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uswyc")
+}],
+"loop": true,
+"name": &"idle_electric",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xctt5")
+}],
+"loop": true,
+"name": &"idle_fire",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ttab")
+}],
+"loop": true,
+"name": &"idle_water",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0krr")
+}],
+"loop": true,
+"name": &"shooting_electric",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqwah")
+}],
+"loop": true,
+"name": &"shooting_fire",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh34u")
+}],
+"loop": true,
+"name": &"shooting_water",
+"speed": 1.0
+}]
+
 [node name="Main" type="Node"]
 script = ExtResource("1_k0mp0")
 
 [node name="Player" parent="." instance=ExtResource("1_p2ntj")]
 z_index = 1
-position = Vector2(2144, 134)
+position = Vector2(1415, 643)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4.15, 4.15)
 
 [node name="ghost" parent="." instance=ExtResource("3_2pqcv")]
+visible = false
 z_index = 1
-position = Vector2(939, 681)
+position = Vector2(2150, 995)
 
 [node name="SceneSettingText" parent="." instance=ExtResource("19_t6sd6")]
 script = ExtResource("20_eqpts")
@@ -87,7 +203,7 @@ position = Vector2(2148, 528)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Outside"]
 stream = ExtResource("23_myt4a")
-volume_db = 24.0
+volume_db = 15.0
 
 [node name="Interactions" type="Node2D" parent="Outside"]
 position = Vector2(664, 434)
@@ -153,11 +269,146 @@ sprite_frames = SubResource("SpriteFrames_7jn8p")
 autoplay = "default"
 frame_progress = 0.435948
 
+[node name="Shovel" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(-275, 461)
+script = ExtResource("14_dp3eg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Shovel"]
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/Shovel"]
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
+[node name="Ghost" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(1486, 565)
+script = ExtResource("15_txyw0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Ghost"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="TV" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(-227, -670)
+script = ExtResource("16_j2jfr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/TV"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/TV"]
+position = Vector2(0, 2)
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
+[node name="Mirror" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(-154, -670)
+script = ExtResource("17_o7ddy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Mirror"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/Mirror"]
+position = Vector2(0, 2)
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
+[node name="Table" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(-204, -555)
+script = ExtResource("18_0loja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Table"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/Table"]
+position = Vector2(0, 2)
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
+[node name="WC" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(429, -500)
+script = ExtResource("19_ids8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/WC"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/WC"]
+position = Vector2(0, 2)
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
+[node name="Bed" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(601, -642)
+script = ExtResource("20_0loja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Bed"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/Bed"]
+position = Vector2(0, 2)
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
+[node name="Stove" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(-152, 418)
+script = ExtResource("21_1v6qk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Stove"]
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/Stove"]
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
+[node name="Clock" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(96, -125)
+script = ExtResource("22_augu2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Clock"]
+position = Vector2(-2, 4)
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/Clock"]
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
+[node name="Cabinet" type="Area2D" parent="Outside/Interactions"]
+position = Vector2(331, 642)
+script = ExtResource("23_tm6hj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/Interactions/Cabinet"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Outside/Interactions/Cabinet"]
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.435948
+
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Outside"]
 stream = ExtResource("2_e3ev4")
-volume_db = -10.0
 parameters/looping = true
-script = ExtResource("3_fu6tu")
 
 [node name="Inside" type="Node2D" parent="."]
 position = Vector2(664, 434)
@@ -171,22 +422,266 @@ volume_db = -10.0
 [node name="Entrance" type="Node2D" parent="Inside/GroundFloor"]
 position = Vector2(61.4576, -4.03522)
 
-[node name="EntranceMarker" type="Marker2D" parent="Inside/GroundFloor/Entrance"]
+[node name="maindoor" type="Node2D" parent="Inside/GroundFloor/Entrance"]
 
-[node name="EntranceArea" type="Area2D" parent="Inside/GroundFloor/Entrance"]
+[node name="EntranceMarker" type="Marker2D" parent="Inside/GroundFloor/Entrance/maindoor"]
+
+[node name="EntranceArea" type="Area2D" parent="Inside/GroundFloor/Entrance/maindoor"]
 position = Vector2(-0.457642, 7.03522)
+script = ExtResource("18_yq6so")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/GroundFloor/Entrance/EntranceArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/GroundFloor/Entrance/maindoor/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="stairdown" type="Node2D" parent="Inside/GroundFloor/Entrance"]
+position = Vector2(-61.4576, 4.03522)
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/GroundFloor/Entrance/stairdown"]
+position = Vector2(-63, -27)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/GroundFloor/Entrance/stairdown"]
+position = Vector2(-63.4576, -19.9648)
+script = ExtResource("19_tel4y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/GroundFloor/Entrance/stairdown/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="stairsup" type="Node2D" parent="Inside/GroundFloor/Entrance"]
+position = Vector2(-61.4576, 4.03522)
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/GroundFloor/Entrance/stairsup"]
+position = Vector2(155, -31)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/GroundFloor/Entrance/stairsup"]
+position = Vector2(154.542, -23.9648)
+script = ExtResource("20_qkpxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/GroundFloor/Entrance/stairsup/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="blueroom" type="Node2D" parent="Inside/GroundFloor/Entrance"]
+position = Vector2(-61.4576, 4.03522)
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/GroundFloor/Entrance/blueroom"]
+position = Vector2(-35, -152)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/GroundFloor/Entrance/blueroom"]
+position = Vector2(-35.4576, -144.965)
+script = ExtResource("21_5q0nq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/GroundFloor/Entrance/blueroom/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="orangeroom" type="Node2D" parent="Inside/GroundFloor/Entrance"]
+position = Vector2(-61.4576, 4.03522)
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/GroundFloor/Entrance/orangeroom"]
+position = Vector2(45, -152)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/GroundFloor/Entrance/orangeroom"]
+position = Vector2(44.5424, -144.965)
+script = ExtResource("22_dgi5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/GroundFloor/Entrance/orangeroom/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="kitchen" type="Node2D" parent="Inside/GroundFloor/Entrance"]
+position = Vector2(-61.4576, 4.03522)
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/GroundFloor/Entrance/kitchen"]
+position = Vector2(125, -152)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/GroundFloor/Entrance/kitchen"]
+position = Vector2(124.542, -144.965)
+script = ExtResource("23_fuf3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/GroundFloor/Entrance/kitchen/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="kitchen" type="Node2D" parent="Inside/GroundFloor"]
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/GroundFloor/kitchen"]
+position = Vector2(-259, 561)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/GroundFloor/kitchen"]
+position = Vector2(-259.458, 568.035)
+script = ExtResource("24_pibwh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/GroundFloor/kitchen/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="blueroom" type="Node2D" parent="Inside/GroundFloor"]
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/GroundFloor/blueroom"]
+position = Vector2(-163, -511)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/GroundFloor/blueroom"]
+position = Vector2(-163.458, -503.965)
+script = ExtResource("25_c6pm6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/GroundFloor/blueroom/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="orangeroom" type="Node2D" parent="Inside/GroundFloor"]
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/GroundFloor/orangeroom"]
+position = Vector2(478, -399)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/GroundFloor/orangeroom"]
+position = Vector2(477.542, -391.965)
+script = ExtResource("26_5he1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/GroundFloor/orangeroom/EntranceArea"]
 shape = SubResource("RectangleShape2D_muem4")
 
 [node name="FirstFloor" type="Node2D" parent="Inside"]
 
+[node name="yellowroom" type="Node2D" parent="Inside/FirstFloor"]
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/FirstFloor/yellowroom"]
+position = Vector2(1181, 672)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/FirstFloor/yellowroom"]
+position = Vector2(1180.54, 679.035)
+script = ExtResource("27_vchkt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/FirstFloor/yellowroom/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="whiteroom" type="Node2D" parent="Inside/FirstFloor"]
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/FirstFloor/whiteroom"]
+position = Vector2(814, 673)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/FirstFloor/whiteroom"]
+position = Vector2(813.542, 680.035)
+script = ExtResource("28_txyw0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/FirstFloor/whiteroom/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="stairsdown" type="Node2D" parent="Inside/FirstFloor"]
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/FirstFloor/stairsdown"]
+position = Vector2(1123, 277)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/FirstFloor/stairsdown"]
+position = Vector2(1122.54, 284.035)
+script = ExtResource("29_vc5cj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/FirstFloor/stairsdown/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="stairsup" type="Node2D" parent="Inside/FirstFloor"]
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/FirstFloor/stairsup"]
+position = Vector2(1308, 273)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/FirstFloor/stairsup"]
+position = Vector2(1307.54, 280.035)
+script = ExtResource("30_nvyfr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/FirstFloor/stairsup/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="corridoryellow" type="Node2D" parent="Inside/FirstFloor"]
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/FirstFloor/corridoryellow"]
+position = Vector2(1245, 251)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/FirstFloor/corridoryellow"]
+position = Vector2(1244.54, 258.035)
+script = ExtResource("31_ty1g6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/FirstFloor/corridoryellow/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="corridorwhite" type="Node2D" parent="Inside/FirstFloor"]
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/FirstFloor/corridorwhite"]
+position = Vector2(1165, 251)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/FirstFloor/corridorwhite"]
+position = Vector2(1164.54, 258.035)
+script = ExtResource("32_j2jfr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/FirstFloor/corridorwhite/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
 [node name="Basement" type="Node2D" parent="Inside"]
 
-[node name="Utils" type="Node2D" parent="."]
+[node name="basement" type="Node2D" parent="Inside/Basement"]
 
-[node name="DoorSound" type="AudioStreamPlayer" parent="Utils"]
+[node name="EntranceMarker" type="Marker2D" parent="Inside/Basement/basement"]
+position = Vector2(1485, 622)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/Basement/basement"]
+position = Vector2(1485, 626)
+script = ExtResource("33_bjg73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/Basement/basement/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="attic" type="Node2D" parent="Inside/Basement"]
+
+[node name="EntranceMarker" type="Marker2D" parent="Inside/Basement/attic"]
+position = Vector2(505, 532)
+
+[node name="EntranceArea" type="Area2D" parent="Inside/Basement/attic"]
+position = Vector2(504.54, 539.035)
+script = ExtResource("34_bu4jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/Basement/attic/EntranceArea"]
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="DoorSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_muem4")
+
+[node name="Utils" type="Node2D" parent="."]
+script = ExtResource("18_2f3dj")
+
+[node name="corridorUp" type="AudioStreamPlayer" parent="Utils"]
+stream = ExtResource("20_yq6so")
+parameters/looping = true
+
+[node name="corridorGround" type="AudioStreamPlayer" parent="Utils"]
+stream = ExtResource("21_fv21b")
+parameters/looping = true
+
+[node name="kitchen" type="AudioStreamPlayer" parent="Utils"]
+stream = ExtResource("22_tel4y")
+parameters/looping = true
+
+[node name="basement" type="AudioStreamPlayer" parent="Utils"]
+stream = ExtResource("23_qkpxi")
+parameters/looping = true
+
+[node name="blueroom" type="AudioStreamPlayer" parent="Utils"]
+stream = ExtResource("24_5q0nq")
+parameters/looping = true
+
+[node name="orangeroom" type="AudioStreamPlayer" parent="Utils"]
+stream = ExtResource("25_dgi5k")
+parameters/looping = true
+
+[node name="whiteroom" type="AudioStreamPlayer" parent="Utils"]
+stream = ExtResource("26_j8jky")
+parameters/looping = true
+
+[node name="circleroom" type="AudioStreamPlayer" parent="Utils"]
+stream = ExtResource("27_kmb1v")
+parameters/looping = true
+
+[node name="yellowroom" type="AudioStreamPlayer" parent="Utils"]
+stream = ExtResource("28_fuf3a")
+parameters/looping = true
+
+[node name="Newghost" type="CharacterBody2D" parent="."]
+position = Vector2(2153, 996)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Newghost"]
+sprite_frames = SubResource("SpriteFrames_bu4jf")
+animation = &"idle_electric"
 
 [connection signal="body_entered" from="Outside/Interactions/Grave" to="Outside/Interactions/Grave" method="_on_body_entered"]
 [connection signal="body_exited" from="Outside/Interactions/Grave" to="Outside/Interactions/Grave" method="_on_body_exited"]
@@ -198,3 +693,57 @@ stream = ExtResource("17_muem4")
 [connection signal="body_exited" from="Outside/Interactions/FrontDoor" to="Outside/Interactions/FrontDoor" method="_on_body_exited"]
 [connection signal="body_entered" from="Outside/Interactions/Window" to="Outside/Interactions/Window" method="_on_body_entered"]
 [connection signal="body_exited" from="Outside/Interactions/Window" to="Outside/Interactions/Window" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/Shovel" to="Outside/Interactions/Shovel" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Shovel" to="Outside/Interactions/Shovel" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/Ghost" to="Outside/Interactions/Ghost" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Ghost" to="Outside/Interactions/Ghost" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/TV" to="Outside/Interactions/TV" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/TV" to="Outside/Interactions/TV" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/Mirror" to="Outside/Interactions/Mirror" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Mirror" to="Outside/Interactions/Mirror" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/Table" to="Outside/Interactions/Table" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Table" to="Outside/Interactions/Table" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/WC" to="Outside/Interactions/WC" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/WC" to="Outside/Interactions/WC" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/Bed" to="Outside/Interactions/Bed" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Bed" to="Outside/Interactions/Bed" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/Stove" to="Outside/Interactions/Stove" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Stove" to="Outside/Interactions/Stove" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/Clock" to="Outside/Interactions/Clock" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Clock" to="Outside/Interactions/Clock" method="_on_body_exited"]
+[connection signal="body_entered" from="Outside/Interactions/Cabinet" to="Outside/Interactions/Cabinet" method="_on_body_entered"]
+[connection signal="body_exited" from="Outside/Interactions/Cabinet" to="Outside/Interactions/Cabinet" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/GroundFloor/Entrance/maindoor/EntranceArea" to="Inside/GroundFloor/Entrance/maindoor/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/GroundFloor/Entrance/maindoor/EntranceArea" to="Inside/GroundFloor/Entrance/maindoor/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/GroundFloor/Entrance/stairdown/EntranceArea" to="Inside/GroundFloor/Entrance/stairdown/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/GroundFloor/Entrance/stairdown/EntranceArea" to="Inside/GroundFloor/Entrance/stairdown/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/GroundFloor/Entrance/stairsup/EntranceArea" to="Inside/GroundFloor/Entrance/stairsup/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/GroundFloor/Entrance/stairsup/EntranceArea" to="Inside/GroundFloor/Entrance/stairsup/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/GroundFloor/Entrance/blueroom/EntranceArea" to="Inside/GroundFloor/Entrance/blueroom/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/GroundFloor/Entrance/blueroom/EntranceArea" to="Inside/GroundFloor/Entrance/blueroom/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/GroundFloor/Entrance/orangeroom/EntranceArea" to="Inside/GroundFloor/Entrance/orangeroom/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/GroundFloor/Entrance/orangeroom/EntranceArea" to="Inside/GroundFloor/Entrance/orangeroom/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/GroundFloor/Entrance/kitchen/EntranceArea" to="Inside/GroundFloor/Entrance/kitchen/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/GroundFloor/Entrance/kitchen/EntranceArea" to="Inside/GroundFloor/Entrance/kitchen/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/GroundFloor/kitchen/EntranceArea" to="Inside/GroundFloor/kitchen/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/GroundFloor/kitchen/EntranceArea" to="Inside/GroundFloor/kitchen/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/GroundFloor/blueroom/EntranceArea" to="Inside/GroundFloor/blueroom/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/GroundFloor/blueroom/EntranceArea" to="Inside/GroundFloor/blueroom/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/GroundFloor/orangeroom/EntranceArea" to="Inside/GroundFloor/orangeroom/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/GroundFloor/orangeroom/EntranceArea" to="Inside/GroundFloor/orangeroom/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/FirstFloor/yellowroom/EntranceArea" to="Inside/FirstFloor/yellowroom/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/FirstFloor/yellowroom/EntranceArea" to="Inside/FirstFloor/yellowroom/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/FirstFloor/whiteroom/EntranceArea" to="Inside/FirstFloor/whiteroom/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/FirstFloor/whiteroom/EntranceArea" to="Inside/FirstFloor/whiteroom/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/FirstFloor/stairsdown/EntranceArea" to="Inside/FirstFloor/stairsdown/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/FirstFloor/stairsdown/EntranceArea" to="Inside/FirstFloor/stairsdown/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/FirstFloor/stairsup/EntranceArea" to="Inside/FirstFloor/stairsup/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/FirstFloor/stairsup/EntranceArea" to="Inside/FirstFloor/stairsup/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/FirstFloor/corridoryellow/EntranceArea" to="Inside/FirstFloor/corridoryellow/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/FirstFloor/corridoryellow/EntranceArea" to="Inside/FirstFloor/corridoryellow/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/FirstFloor/corridorwhite/EntranceArea" to="Inside/FirstFloor/corridorwhite/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/FirstFloor/corridorwhite/EntranceArea" to="Inside/FirstFloor/corridorwhite/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/Basement/basement/EntranceArea" to="Inside/Basement/basement/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/Basement/basement/EntranceArea" to="Inside/Basement/basement/EntranceArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Inside/Basement/attic/EntranceArea" to="Inside/Basement/attic/EntranceArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Inside/Basement/attic/EntranceArea" to="Inside/Basement/attic/EntranceArea" method="_on_body_exited"]

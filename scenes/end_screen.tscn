@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c5dyn0pac5d3j" path="res://assets/sprites/UI/menu_bg.png" id="1_dyiid"]
 [ext_resource type="Script" uid="uid://kmapw50aoy3s" path="res://scripts/end_screen_label.gd" id="2_a1pe6"]
-[ext_resource type="FontFile" uid="uid://db1afvq6nh352" path="res://assets/fonts/DoubleHomicide.ttf" id="2_uskov"]
+[ext_resource type="FontFile" uid="uid://dskusxta3hjmf" path="res://assets/fonts/yoster.ttf" id="2_jc7ji"]
 
 [node name="EndScreen" type="Control"]
 layout_mode = 3
@@ -23,7 +23,7 @@ offset_left = 116.0
 offset_top = 226.0
 offset_right = 1050.0
 offset_bottom = 439.0
-theme_override_fonts/font = ExtResource("2_uskov")
-theme_override_font_sizes/font_size = 241
+theme_override_fonts/font = ExtResource("2_jc7ji")
+theme_override_font_sizes/font_size = 160
 text = "YOU WON !!!"
 script = ExtResource("2_a1pe6")

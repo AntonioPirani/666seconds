@@ -13,7 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		textbox.show_textbox()
-		textbox.queue_text("Peeking through the window, you swear you saw something moving inside.")
+		textbox.queue_text("You swear you saw something move inside just now.")
 		textbox.display_text()
 		set_process(false)
 		

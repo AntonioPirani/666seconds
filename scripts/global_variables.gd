@@ -23,3 +23,6 @@ var ghost_upstairs = true
 var change_ghost = true
 
 var hasShovel = false
+var hasBear = false
+var hasKey = false
+var hasHat = false

@@ -41,9 +41,12 @@ func _process(_delta):  # Use _delta to silence the warning
 				change_state(State.FINISHED)
 		State.FINISHED:
 			if Input.is_action_just_pressed("ui_accept"):
-				change_state(State.READY)
-				hide_textbox()
-				player.can_move = true
+				if text_queue.size() > 0:
+					display_text()  # Show next message
+				else:
+					change_state(State.READY)
+					hide_textbox()
+					player.can_move = true
 
 func queue_text(next_text):
 	text_queue.push_back(next_text)

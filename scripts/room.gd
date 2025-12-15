@@ -6,8 +6,10 @@ extends Node2D
 var player_in_area := false
 var swapped := false
 var message_shown := false
+var triggered := false
 
 func close_gate():
+	print("closing gate")
 	var coords = Vector2i(134, 15)
 	var source_id = 15
 	var atlas_coords = Vector2i(12, 3)
@@ -44,4 +46,10 @@ func _process(delta: float) -> void:
 				textbox.display_text()
 				message_shown = true
 		else:
-			replace_tile()
+			if !triggered:
+				textbox.show_textbox()
+				textbox.queue_text("You dig up a chest from beneath the ground and open it. You found a teddy bear inside it!")
+				textbox.display_text()
+				GlobalVariables.hasBear = true
+				triggered = true
+				replace_tile()
